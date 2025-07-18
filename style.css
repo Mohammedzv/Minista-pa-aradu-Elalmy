@@ -1,0 +1,16 @@
+body {
+  background-color: #000;
+  color: #90ee90;
+  font-family: 'Tahoma', sans-serif;
+}
+
+a {
+  color: #90ee90;
+}
+
+pre {
+  background-color: #111;
+  padding: 10px;
+  border-radius: 8px;
+  overflow-x: auto;
+}
