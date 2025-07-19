@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+  <meta charset="UTF-8">
+  <title>شرح برامج الأرقام الوهمية</title>
+  <style>
+    body { background: #000; color: #0f0; font-family: monospace; text-align: center; padding: 20px; }
+    button { padding: 10px 20px; margin-top: 10px; }
+  </style>
+</head>
+<body>
+  <h1>محاكي ارقام براعيه العالمي </h1>
+  <h1>شرح عمل برامج الأرقام الوهمية</h1>
+  <p>اختر رقم من السيرفر التجريبي</p>
+  <div id="number-box" style="font-size: 20px; margin: 20px;"></div>
+  <button onclick="getFakeNumber()">اختيار رقم</button>
+
+  <script>
+    // قاعدة بيانات تجريبية لأرقام أمريكية
+    const availableNumbers = [
+      "+1 202-555-0143",
+      "+1 202-555-0198",
+      "+1 303-555-0111",
+      "+1 646-555-0123",
+      "+1 786-555-0177"
+    ];
+
+    function getFakeNumber() {
+      // نحاكي إننا "طلبنا" رقم من السيرفر
+      const index = Math.floor(Math.random() * availableNumbers.length);
+      const selectedNumber = availableNumbers[index];
+      document.getElementById("number-box").innerText = "الرقم المخصص لك: " + selectedNumber;
+    }
+  </script>
+</body>
+</html>
