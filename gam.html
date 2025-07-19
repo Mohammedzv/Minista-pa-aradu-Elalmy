@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+  <meta charset="UTF-8">
+  <title>تعلم إنشاء الألعاب بـ JavaScript</title>
+  <style>
+    body {
+      background-color: #111;
+      color: #0f0;
+      font-family: 'Courier New', monospace;
+      padding: 20px;
+      direction: rtl;
+    }
+    h2 {
+      color: #0ff;
+    }
+    textarea {
+      width: 100%;
+      height: 150px;
+      background: #222;
+      color: #0f0;
+      border: 1px solid #0f0;
+      padding: 10px;
+      font-size: 16px;
+      margin-top: 5px;
+    }
+    button {
+      background: #0f0;
+      color: #111;
+      padding: 8px 16px;
+      border: none;
+      cursor: pointer;
+      margin: 10px 0;
+      font-weight: bold;
+    }
+    iframe {
+      background: #fff;
+      width: 100%;
+      height: 200px;
+      border: 1px solid #0f0;
+      margin-top: 10px;
+    }
+    .lesson {
+      margin-bottom: 40px;
+      border-bottom: 1px solid #333;
+      padding-bottom: 20px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>مرحبا بك ف عالم العالمي و وزير الشباب </h1>
+
+  <h1>🕹️ تعلم إنشاء الألعاب بـ JavaScript</h1>
+  <p>ابدأ من الصفر وتعلّم كيف تصنع لعبتك الخاصة خطوة بخطوة!</p>
+
+  <div id="lessons"></div>
+
+  <script>
+    const lessons = [
+      {
+        title: "الدرس 1: إنشاء نافذة اللعبة",
+        desc: "هنستخدم canvas لرسم اللعبة.",
+        code: `<canvas id="game" width="300" height="150" style="border:1px solid #000"></canvas>`
+      },
+      {
+        title: "الدرس 2: رسم لاعب بسيط",
+        desc: "هنرسم مربع يمثل اللاعب.",
+        code: `
+<canvas id="game" width="300" height="150" style="border:1px solid #000"></canvas>
+<script>
+const canvas = document.getElementById("game");
+const ctx = canvas.getContext("2d");
+ctx.fillStyle = "blue";
+ctx.fillRect(50, 50, 30, 30);
+</script>`
+      },
+      {
+        title: "الدرس 3: تحريك اللاعب",
+        desc: "نخلي المربع يتحرك بأسهم الكيبورد.",
+        code: `
+<canvas id="game" width="300" height="150" style="border:1px solid #000"></canvas>
+<script>
+const canvas = document.getElementById("game");
+const ctx = canvas.getContext("2d");
+let x = 50, y = 50;
+
+function draw() {
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  ctx.fillStyle = "blue";
+  ctx.fillRect(x, y, 30, 30);
+}
+draw();
+
+document.addEventListener("keydown", (e) => {
+  if (e.key === "ArrowRight") x += 5;
+  if (e.key === "ArrowLeft") x -= 5;
+  if (e.key === "ArrowUp") y -= 5;
+  if (e.key === "ArrowDown") y += 5;
+  draw();
+});
+</script>`
+      },
+      {
+        title: "الدرس 4: منع الخروج من الشاشة",
+        desc: "نحط حدود علشان اللاعب ميتعداش الشاشة.",
+        code: `
+// نفس الكود السابق + الشيك على الحدود
+if (x < 0) x = 0;
+if (x > canvas.width - 30) x = canvas.width - 30;
+// وهكذا لباقي الاتجاهات`
+      },
+      {
+        title: "الدرس 5: رسم عدو",
+        desc: "هنرسم مربع أحمر كعدو.",
+        code: `
+// بعد رسم اللاعب
+ctx.fillStyle = "red";
+ctx.fillRect(150, 50, 30, 30);`
+      },
+      {
+        title: "الدرس 6: تحريك العدو تلقائي",
+        desc: "العدو يتحرك لوحده يمين وشمال.",
+        code: `
+let ex = 150, dir = 1;
+setInterval(() => {
+  ex += dir * 2;
+  if (ex < 0 || ex > canvas.width - 30) dir *= -1;
+  draw();
+  ctx.fillStyle = "red";
+  ctx.fillRect(ex, 50, 30, 30);
+}, 50);`
+      },
+      {
+        title: "الدرس 7: التصادم مع العدو",
+        desc: "نكتشف هل اللاعب لمس العدو.",
+        code: `
+function checkCollision() {
+  if (x < ex + 30 && x + 30 > ex && y < 80 && y + 30 > 50) {
+    alert("💥 خسرت!");
+    location.reload();
+  }
+}
+setInterval(checkCollision, 100);`
+      },
+      {
+        title: "الدرس 8: إضافة نقاط",
+        desc: "نحسب كم مره اتحرك بدون خسارة.",
+        code: `
+let score = 0;
+setInterval(() => {
+  score++;
+  document.title = "نقاطك: " + score;
+}, 1000);`
+      },
+      {
+        title: "الدرس 9: زر إعادة اللعب",
+        desc: "نضيف زر يعيد اللعبة.",
+        code: `<button onclick="location.reload()">إعادة اللعب</button>`
+      },
+      {
+        title: "الدرس 10: تحسينات إضافية",
+        desc: "صوت – سرعة – تأثيرات – لعبة كاملة! (هيكون في مشروع لاحق).",
+        code: `// تقدر تضيف مؤثرات صوتية، صعوبة متزايدة، أو شكل نهائي احترافي.`
+      }
+    ];
+
+    const container = document.getElementById("lessons");
+
+    lessons.forEach((lesson, index) => {
+      const div = document.createElement("div");
+      div.className = "lesson";
+      div.innerHTML = `
+        <h2>${lesson.title}</h2>
+        <p>${lesson.desc}</p>
+        <textarea id="code${index}">${lesson.code.trim()}</textarea>
+        <button onclick="runCode(${index})">شغّل الكود</button>
+        <iframe id="output${index}"></iframe>
+      `;
+      container.appendChild(div);
+    });
+
+    function runCode(i) {
+      const code = document.getElementById("code" + i).value;
+      const iframe = document.getElementById("output" + i);
+      const iframeDoc = iframe.contentDocument || iframe.contentWindow.document;
+      iframeDoc.open();
+      iframeDoc.write(code);
+      iframeDoc.close();
+    }
+  </script>
+
+</body>
+</html>
