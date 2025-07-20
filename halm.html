@@ -1,0 +1,129 @@
+
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <title>حلمك</title>
+  <style>
+    body {
+      background-color: #000;
+      color: #0f0;
+      font-family: 'Courier New', Courier, monospace;
+      padding: 50px;
+      text-align: center;
+      overflow: hidden;
+    }
+
+    h1 {
+      font-size: 40px;
+      margin-bottom: 30px;
+      animation: flicker 1.5s infinite alternate;
+    }
+
+    p {
+      font-size: 20px;
+      line-height: 2;
+      margin-bottom: 20px;
+      animation: typing 4s steps(40, end) 1;
+      white-space: nowrap;
+      overflow: hidden;
+      border-right: 2px solid #0f0;
+    }
+
+    .footer {
+      margin-top: 50px;
+      font-size: 18px;
+      color: #0f0;
+      border-top: 1px solid #0f0;
+      padding-top: 20px;
+      animation: flicker 1.5s infinite alternate;
+    }
+
+    @keyframes flicker {
+      0% { opacity: 1; }
+      50% { opacity: 0.4; }
+      100% { opacity: 1; }
+    }
+
+    @keyframes typing {
+      from { width: 0 }
+      to { width: 100% }
+    }
+
+    .matrix {
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: -1;
+      width: 100%;
+      height: 100%;
+      background: black;
+    }
+
+    canvas {
+      display: block;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="matrix">
+    <canvas id="matrix"></canvas>
+  </div>
+
+  <h1>حلمي اتحقق</h1>
+
+  <p>أنا بشتغل في البرمجة بقالي سنين.</p>
+  <p>وبعد تعب السنين وصلت لحلمي.</p>
+  <p>الفضل لربنا، ثم عيلتي الغالية.</p>
+  <p>أنا تعبت جدًا، وقعت كتير جدًا.</p>
+  <p>بس دلوقتي وقفت على رجلي، ومسكت ف حلمي وحققته.</p>
+  <p>حابب أشكر أصحابي اللي وقفوا جنبي.</p>
+  <p>وأشكر التيم اللي بيسندني، انتو فعلًا إخواتي.</p>
+
+  <div class="footer">امسك ف حلمك... لآخر نفس ف عمرك 🌟</div>
+
+  <audio autoplay loop>
+    <source src="your-music.mp3" type="audio/mpeg">
+    المتصفح لا يدعم تشغيل الصوت.
+  </audio>
+
+  <script>
+    var canvas = document.getElementById("matrix");
+    var ctx = canvas.getContext("2d");
+
+    canvas.height = window.innerHeight;
+    canvas.width = window.innerWidth;
+
+    var letters = "01";
+    letters = letters.split("");
+
+    var fontSize = 14;
+    var columns = canvas.width / fontSize;
+    var drops = [];
+
+    for (var x = 0; x < columns; x++)
+      drops[x] = 1;
+
+    function draw() {
+      ctx.fillStyle = "rgba(0, 0, 0, 0.05)";
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+      ctx.fillStyle = "#0F0";
+      ctx.font = fontSize + "px arial";
+      for (var i = 0; i < drops.length; i++) {
+        var text = letters[Math.floor(Math.random() * letters.length)];
+        ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+
+        if (drops[i] * fontSize > canvas.height && Math.random() > 0.975)
+          drops[i] = 0;
+
+        drops[i]++;
+      }
+    }
+
+    setInterval(draw, 33);
+  </script>
+
+</body>
+</html>
