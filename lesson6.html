@@ -2,37 +2,52 @@
 <html lang="ar">
 <head>
   <meta charset="UTF-8">
-  <title>الدرس 6</title>
+  <title>الدرس 6: الكائنات والمصفوفات</title>
   <style>
     body {
-      background-color: #000;
-      color: #0f0;
-      font-family: Tahoma, sans-serif;
-      text-align: center;
-      direction: rtl;
-    }
-    .back {
-      margin-top: 30px;
-    }
-    button {
       background-color: black;
-      border: 2px solid #0f0;
-      color: #0f0;
-      padding: 10px 20px;
-      cursor: pointer;
-      border-radius: 5px;
+      color: #00ff00;
+      font-family: 'Courier New', monospace;
+      padding: 20px;
+      line-height: 1.7;
     }
-    button:hover {
-      background-color: #0f0;
-      color: #000;
+
+    .back-button {
+      display: inline-block;
+      margin-top: 30px;
+      padding: 10px 20px;
+      border: 1px solid #00ff00;
+      color: #00ff00;
+      text-decoration: none;
+      transition: 0.3s;
+    }
+
+    .back-button:hover {
+      background-color: #00ff00;
+      color: black;
     }
   </style>
 </head>
 <body>
-  <h1>📘 الدرس 6</h1>
-  <p>الكائنات والمصفوفات</p>
-  <div class="back">
-    <button onclick="location.href='lessons.html'">← رجوع للدروس</button>
-  </div>
+
+  <h1>📘 الدرس 6: الكائنات والمصفوفات</h1>
+
+  
+<p>
+المصفوفة هي مجموعة من القيم، والكائن يحتوي على خصائص.  
+مثال:
+</p>
+
+<pre style="background:#111; padding:10px; border:1px solid #00ff00;">
+let fruits = ["تفاح", "موز", "برتقال"];
+let person = {
+  name: "علي",
+  age: 30
+};
+</pre>
+
+
+  <a class="back-button" href="index.html">← ارجع للصفحة الرئيسية</a>
+
 </body>
 </html>
