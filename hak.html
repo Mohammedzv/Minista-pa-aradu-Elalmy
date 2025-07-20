@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Console Access - Hack Mode</title>
+  <style>
+    body {
+      background-color: black;
+      color: #00ff00;
+      font-family: 'Courier New', Courier, monospace;
+      padding: 20px;
+      overflow: hidden;
+    }
+    #console {
+      height: 100vh;
+      overflow-y: auto;
+      white-space: pre-wrap;
+    }
+    .line {
+      animation: typing 1s steps(50, end) forwards;
+    }
+    @keyframes typing {
+      from { width: 0 }
+      to { width: 100% }
+    }
+  </style>
+</head>
+<body>
+  <div id="console"></div>
+
+  <audio autoplay loop>
+    <source src="https://cdn.pixabay.com/download/audio/2022/03/23/audio_6e23e77c3b.mp3?filename=dark-sci-fi-ambient-loop-110199.mp3" type="audio/mp3">
+  </audio>
+
+  <script>
+    const consoleElement = document.getElementById('console');
+    const lines = [
+      "[SYSTEM] Access granted...",
+      "[INFO] Loading core modules...",
+      "[OK] Injecting packet sniffer...",
+      "[WARNING] Firewall bypass in progress...",
+      "[OK] IP Masked: 192.168.0.101",
+      "[TRACE] Signal found: Accessing mainframe...",
+      "[BRUTEFORCE] Trying password: admin123...",
+      "[SUCCESS] Password cracked!",
+      "[LOG] Downloading sensitive data...",
+      "[DOWNLOAD] ████████████████ 100%",
+      "[SYSTEM] Exiting trace mode...",
+      "[DONE] Mission completed."
+    ];
+
+    let i = 0;
+    function printLine() {
+      if (i < lines.length) {
+        const line = document.createElement('div');
+        line.classList.add('line');
+        line.textContent = lines[i];
+        consoleElement.appendChild(line);
+        i++;
+        setTimeout(printLine, 1000);
+      }
+    }
+
+    printLine();
+  </script>
+</body>
+</html>
