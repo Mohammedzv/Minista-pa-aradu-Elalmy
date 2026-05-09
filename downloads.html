@@ -3,67 +3,94 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>تحميل الأكواد - العالمي</title>
+    <title>تحميل الأكواد - عالم العالمي</title>
     
     <style>
-        /* التنسيقات اللي هتخلي الشكل احترافي (Hacker Style) */
+        /* التنسيقات النهائية لـ "عالم العالمي" */
         body {
-            background-color: #000; /* خلفية الصفحة كلها سوداء */
+            background-color: #000; /* خلفية سوداء بالكامل */
+            color: #fff; /* لون الخط الأساسي أبيض للوضوح */
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            direction: rtl; /* اتجاه الكتابة من اليمين للشمال */
             margin: 0;
-            padding: 0;
-            font-family: Arial, sans-serif;
-        }
-        
-        .download-section {
-            background-color: #000;
-            direction: rtl; /* عشان الكلام يبقى عربي صح */
             padding: 20px;
-            max-width: 600px;
+        }
+
+        .download-section {
+            max-width: 700px;
             margin: auto;
         }
 
         .section-title {
-            color: #00ff41; /* اللون الفسفوري اللي اخترته */
+            color: #00ff41; /* أخضر نيون فسفوري */
             text-align: center;
             text-shadow: 0 0 10px #00ff41;
-            margin-bottom: 25px;
+            margin-bottom: 30px;
+            font-size: 24px;
         }
 
         .download-card {
-            background: #111;
-            border: 1px solid #00ff41;
+            background: #111; /* لون الصندوق رمادي غامق جداً */
+            border: 1px solid #00ff41; /* برواز أخضر نيون */
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 15px;
-            margin-bottom: 12px;
-            border-radius: 8px;
-            transition: 0.3s;
+            padding: 15px 20px;
+            margin-bottom: 15px;
+            border-radius: 12px;
+            transition: 0.3s ease-in-out;
         }
 
         .download-card:hover {
-            box-shadow: 0 0 10px #00ff41; /* إضاءة عند الوقوف على الكارت */
+            box-shadow: 0 0 15px rgba(0, 255, 65, 0.4);
+            transform: translateY(-2px);
         }
 
         .file-info {
-            color: #fff;
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 15px;
+        }
+
+        .file-icon {
+            font-size: 22px;
+        }
+
+        .file-name {
+            color: #ffffff; /* اسم الملف أبيض واضح جداً */
+            font-size: 16px;
+            font-weight: bold;
         }
 
         .download-link {
-            background: #00ff41;
-            color: #000;
-            padding: 8px 15px;
+            background: #00ff41; /* زرار أخضر نيون */
+            color: #000; /* كتابة سوداء جوه الزرار */
             text-decoration: none;
-            border-radius: 5px;
+            padding: 8px 18px;
+            border-radius: 8px;
             font-weight: bold;
             font-size: 14px;
+            transition: 0.3s;
+            border: 2px solid #00ff41;
         }
 
         .download-link:hover {
-            background: #fff;
+            background: transparent;
+            color: #00ff41;
+        }
+
+        /* تنسيق خاص للموبايل عشان الصورة اللي بعتها */
+        @media (max-width: 480px) {
+            .download-card {
+                padding: 12px;
+            }
+            .file-name {
+                font-size: 14px;
+            }
+            .download-link {
+                padding: 6px 12px;
+                font-size: 12px;
+            }
         }
     </style>
 </head>
@@ -72,7 +99,7 @@
 <div class="download-section">
     <h2 class="section-title">مكتبة الأكواد الجاهزة للتحميل</h2>
 
-    <!-- كود 1: عداد الزوار -->
+    <!-- كود 1 -->
     <div class="download-card">
         <div class="file-info">
             <span class="file-icon">📈</span>
@@ -81,25 +108,25 @@
         <a href="files/visitor-counter.js" download class="download-link">تحميل</a>
     </div>
 
-    <!-- كود 2: خلفية الماتريكس -->
+    <!-- كود 2 -->
     <div class="download-card">
         <div class="file-info">
             <span class="file-icon">💻</span>
-            <span class="file-name">تأثير خلفية Matrix (HTML/CSS)</span>
+            <span class="file-name">تأثير خلفية Matrix</span>
         </div>
         <a href="files/matrix-effect.zip" download class="download-link">تحميل</a>
     </div>
 
-    <!-- كود 3: حماية الموقع -->
+    <!-- كود 3 -->
     <div class="download-card">
         <div class="file-info">
             <span class="file-icon">🛡️</span>
-            <span class="file-name">كود منع نسخ محتوى الموقع</span>
+            <span class="file-name">كود حماية المحتوى من النسخ</span>
         </div>
         <a href="files/anti-copy.js" download class="download-link">تحميل</a>
     </div>
 
-    <!-- كود 4: زر الصعود للأعلى -->
+    <!-- كود 4 -->
     <div class="download-card">
         <div class="file-info">
             <span class="file-icon">⬆️</span>
@@ -108,44 +135,64 @@
         <a href="files/scroll-top.zip" download class="download-link">تحميل</a>
     </div>
 
-    <!-- كود 5: فورم اتصال -->
+    <!-- كود 5 -->
     <div class="download-card">
         <div class="file-info">
             <span class="file-icon">📧</span>
-            <span class="file-name">نموذج اتصل بنا (Contact Form)</span>
+            <span class="file-name">نموذج اتصل بنا متكامل</span>
         </div>
         <a href="files/contact-form.zip" download class="download-link">تحميل</a>
     </div>
 
-    <!-- كود 6: قائمة جانبية -->
+    <!-- كود 6 -->
     <div class="download-card">
         <div class="file-info">
             <span class="file-icon">📋</span>
-            <span class="file-name">قائمة جانبية (Sidebar) متجاوبة</span>
+            <span class="file-name">قائمة جانبية (Sidebar) ذكية</span>
         </div>
         <a href="files/sidebar.zip" download class="download-link">تحميل</a>
     </div>
 
-    <!-- كود 7: ساعة رقمية -->
+    <!-- كود 7 -->
     <div class="download-card">
         <div class="file-info">
             <span class="file-icon">⏰</span>
-            <span class="file-name">كود ساعة رقمية لايف للموقع</span>
+            <span class="file-name">ساعة رقمية مباشرة (Live)</span>
         </div>
         <a href="files/digital-clock.js" download class="download-link">تحميل</a>
     </div>
 
-    <!-- كود 8: تأثيرات نيون -->
+    <!-- كود 8 -->
     <div class="download-card">
         <div class="file-info">
             <span class="file-icon">✨</span>
-            <span class="file-name">حزمة تأثيرات Neon للأزرار</span>
+            <span class="file-name">أزرار نيون بتأثيرات حركية</span>
         </div>
         <a href="files/neon-buttons.css" download class="download-link">تحميل</a>
     </div>
 
-    <!-- كود 9: صفحة انتظار -->
+    <!-- كود 9 -->
     <div class="download-card">
+        <div class="file-info">
+            <span class="file-icon">⏳</span>
+            <span class="file-name">صفحة قريباً Coming Soon</span>
+        </div>
+        <a href="files/coming-soon.zip" download class="download-link">تحميل</a>
+    </div>
+
+    <!-- كود 10 -->
+    <div class="download-card">
+        <div class="file-info">
+            <span class="file-icon">🧮</span>
+            <span class="file-name">آلة حاسبة برمجية كاملة</span>
+        </div>
+        <a href="files/calculator.zip" download class="download-link">تحميل</a>
+    </div>
+
+</div>
+
+</body>
+</html>
         <div class="file-info">
             <span class="file-icon">⏳</span>
             <span class="file-name">صفحة "قريباً" (Coming Soon Page)</span>
